@@ -20,10 +20,10 @@ public class CookieManager : MonoBehaviour
         UpdateCookieText();
         UpdateUpgradeText();
         UpdateAutoText();
-        InvokeRepeating(nameof(AutoCookies), 0.0f, 1.0f);
+        InvokeRepeating(nameof(AutoCookies), 0.0f, 1.0f);//repeats this function every second
     }
 
-    public void AddCookie()
+    public void AddCookie()//adds the value of cookies per click to the current amount of cookies
     {
         cookies+= cookiesPerClick;
 
@@ -31,7 +31,7 @@ public class CookieManager : MonoBehaviour
         UpdateCookieText();
     }
 
-    public void Upgrade()
+    public void Upgrade()//increases the value of cookies per click
     {
         if (cookies >= costToUpgrade)
         {
@@ -39,7 +39,7 @@ public class CookieManager : MonoBehaviour
 
             cookiesPerClick++;
 
-            costToUpgrade = costToUpgrade * 3 / 2;
+            costToUpgrade = costToUpgrade * 3 / 2;//multiplies its last price to find a new price
 
             UpdateUpgradeText();
 
@@ -47,7 +47,7 @@ public class CookieManager : MonoBehaviour
         }
         
     }
-    void UpdateCookieText()
+    void UpdateCookieText()//updates the text for the cookie counter
     {
         if (cookieText != null)
         {
@@ -68,7 +68,7 @@ public class CookieManager : MonoBehaviour
         }
     }
 
-    void UpdateUpgradeText()
+    void UpdateUpgradeText()// updates the text for the cookies per click upgrade
     {
         if (upgradeText != null)
         {
@@ -77,7 +77,7 @@ public class CookieManager : MonoBehaviour
         }
     }
 
-    void UpdateAutoText()
+    void UpdateAutoText()// updates the text for the auto clicker upgrade
     {
         if (autoText != null)
         {
@@ -86,7 +86,7 @@ public class CookieManager : MonoBehaviour
         }
     }
 
-    public void AutoClicker()
+    public void AutoClicker()//increases the value of autocookies
     {
         if (cookies >= autoUpgradeCost)
         {
@@ -101,7 +101,7 @@ public class CookieManager : MonoBehaviour
         }
     }
 
-    public void AutoCookies()
+    public void AutoCookies()// adds the value of autocookies to current cookies
     {
         cookies += autoCookie;
         UpdateCookieText();
